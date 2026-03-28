@@ -1,31 +1,59 @@
-<footer class="bg-gray-800 text-white mt-16">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<footer class="mt-16 bg-gray-800 text-white">
+  <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
       <div>
-        <h3 class="text-xl font-bold mb-4">GLAAM</h3>
-        <p class="text-gray-300 text-sm">
+        <h3 class="mb-4 text-xl font-bold">GLAAM</h3>
+        <p class="text-sm text-gray-300">
           Greater Los Angeles Area Mensa. A local group of American Mensa, Ltd.
         </p>
       </div>
       <div>
-        <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+        <h3 class="mb-4 text-lg font-bold">Quick Links</h3>
         <ul class="space-y-2 text-sm text-gray-300">
           <li><a href="/#about" class="hover:text-brand-accent transition-colors">About Us</a></li>
           <li><a href="/#join" class="hover:text-brand-accent transition-colors">Join Mensa</a></li>
-          <li><a href="/resources/" class="hover:text-brand-accent transition-colors">Member Resources</a></li>
+          <li>
+            <a href="/resources/" class="hover:text-brand-accent transition-colors">
+              Member Resources
+            </a>
+          </li>
         </ul>
       </div>
       <div>
-        <h3 class="text-lg font-bold mb-4">Mensa National</h3>
+        <h3 class="mb-4 text-lg font-bold">Mensa National</h3>
         <ul class="space-y-2 text-sm text-gray-300">
-          <li><a href="https://www.us.mensa.org/" target="_blank" rel="noopener noreferrer" class="hover:text-brand-accent transition-colors">American Mensa</a></li>
-          <li><a href="https://www.mensa.org/" target="_blank" rel="noopener noreferrer" class="hover:text-brand-accent transition-colors">Mensa International</a></li>
+          <li>
+            <a
+              href="https://www.us.mensa.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-brand-accent transition-colors"
+            >
+              American Mensa
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mensa.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-brand-accent transition-colors"
+            >
+              Mensa International
+            </a>
+          </li>
         </ul>
       </div>
     </div>
-    <div class="mt-8 pt-8 border-t border-gray-700 text-sm text-gray-400 text-center">
-      <p>&copy; {{ currentYear | default("2026") }} Greater Los Angeles Area Mensa. All rights reserved.</p>
-      <p class="mt-2 text-xs">Mensa and the Mensa logo are registered trademarks of Mensa International Limited and/or American Mensa, Ltd.</p>
+    <div class="mt-8 border-t border-gray-700 pt-8 text-center text-sm text-gray-400">
+      <p>
+        &copy; {{ currentYear | default("2026") }} Greater Los Angeles Area Mensa. All rights
+        reserved.
+      </p>
+      <p class="mt-2 text-xs">
+        Mensa and the Mensa logo are registered trademarks of Mensa International Limited and/or
+        American Mensa, Ltd.
+      </p>
     </div>
   </div>
 </footer>

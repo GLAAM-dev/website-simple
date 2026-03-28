@@ -1,0 +1,19 @@
+{
+    "semi": true,
+    "trailingComma": "all",
+    "singleQuote": false,
+    "printWidth": 100,
+    "tabWidth": 2,
+    "htmlWhitespaceSensitivity": "ignore",
+    "plugins": [
+        "prettier-plugin-tailwindcss"
+    ],
+    "overrides": [
+        {
+            "files": "*.njk",
+            "options": {
+                "parser": "html"
+            }
+        }
+    ]
+}

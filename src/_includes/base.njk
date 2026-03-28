@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{ title | default("GLAAM - Greater Los Angeles Area Mensa") }}</title>
-    <meta name="description" content="{{ description | default('Welcome to Greater Los Angeles Area Mensa. Connect with bright minds through local events, Special Interest Groups, and our welcoming community.') }}">
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- CSS -->
-    <link rel="stylesheet" href="/css/style.css">
-</head>
-<body class="bg-bg-subtle min-h-screen flex flex-col font-sans text-gray-800">
+    <meta
+      name="description"
+      content="{{ description | default('Welcome to Greater Los Angeles Area Mensa. Connect with bright minds through local events, Special Interest Groups, and our welcoming community.') }}"
+    />
 
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body class="bg-bg-subtle flex min-h-screen flex-col font-sans text-gray-800">
     {% include "header.njk" %}
 
-    <main class="flex-grow">
-        {{ content | safe }}
-    </main>
+    <main class="flex-grow">{{ content | safe }}</main>
 
     {% include "footer.njk" %}
-
-</body>
+  </body>
 </html>
