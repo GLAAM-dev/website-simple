@@ -1,16 +1,39 @@
-# React + Vite
+# GLAAM - Greater Los Angeles Area Mensa
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the source code for the official website of the Greater Los Angeles Area Mensa (GLAAM). It is built with [Eleventy (11ty)](https://www.11ty.dev/) and styled using [Tailwind CSS](https://tailwindcss.com/).
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Static Site Generator:** Eleventy (v3)
+- **Styling:** Tailwind CSS (v4)
+- **Templating:** Nunjucks (`.njk`)
+- **Deployment:** Cloudflare Pages
 
-## React Compiler
+## Getting Started
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+To run the project locally, ensure you have Node.js installed. Then, follow these steps:
 
-## Expanding the ESLint configuration
+1. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+2. **Start the development server:**
+   ```bash
+   npm run dev
+   ```
+   *This command runs Eleventy in serve mode and concurrently runs the Tailwind compiler in watch mode. The local server is typically available at `http://localhost:8080/`.*
+
+3. **Build for production:**
+   ```bash
+   npm run build
+   ```
+   *This command cleans up the output directory, compiles the CSS, and generates the final static site in the `_site` directory.*
+
+## Project Structure
+
+- `src/` — Contains all the page templates, includes (`_includes`), and data files.
+- `src/assets/` — Stores images and other static assets.
+- `public/` — Contains top-level static files (like the favicon `logo.png`).
+- `_site/` — The compiled output directory (generated automatically, ignored by Git).
+- `eleventy.config.js` — The Eleventy configuration file.

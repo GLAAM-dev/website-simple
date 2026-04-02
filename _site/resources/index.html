@@ -17,6 +17,9 @@
       rel="stylesheet"
     />
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/logo.png" />
+
     <!-- CSS -->
     <link rel="stylesheet" href="/css/style.css" />
   </head>
@@ -37,10 +40,22 @@
           About Mensa
         </a>
         <a
+          href="/events/"
+          class="hover:text-brand-primary rounded-md px-3 py-2 text-sm font-medium text-gray-600 transition-colors"
+        >
+          Events
+        </a>
+        <a
           href="/#join"
           class="hover:text-brand-primary rounded-md px-3 py-2 text-sm font-medium text-gray-600 transition-colors"
         >
           Join Us
+        </a>
+        <a
+          href="/contact/"
+          class="hover:text-brand-primary rounded-md px-3 py-2 text-sm font-medium text-gray-600 transition-colors"
+        >
+          Contact
         </a>
         <a
           href="/resources/"
@@ -49,25 +64,122 @@
           Member Resources
         </a>
       </nav>
+      <!-- Mobile menu button -->
       <div class="flex items-center md:hidden">
         <button
+          id="mobile-menu-btn"
           type="button"
-          class="hover:text-brand-primary focus:ring-brand-primary p-2 text-gray-600 focus:ring-2 focus:outline-none focus:ring-inset"
+          aria-expanded="false"
+          aria-controls="mobile-menu-panel"
+          class="hover:text-brand-primary focus:ring-brand-primary relative p-2 text-gray-600 focus:ring-2 focus:outline-none focus:ring-inset"
         >
           <span class="sr-only">Open main menu</span>
-          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16"
-            />
+          <!-- Hamburger icon -->
+          <svg id="menu-icon-open" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <!-- Close icon (hidden by default) -->
+          <svg id="menu-icon-close" class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
       </div>
     </div>
   </div>
+
+  <!-- Mobile menu panel -->
+  <div
+    id="mobile-menu-panel"
+    class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out md:hidden"
+  >
+    <nav class="space-y-1 border-t border-gray-200 px-4 pb-4 pt-3">
+      <a
+        href="/#about"
+        class="mobile-nav-link hover:bg-brand-light hover:text-brand-primary block rounded-md px-3 py-3 text-base font-medium text-gray-700 transition-colors"
+      >
+        About Mensa
+      </a>
+      <a
+        href="/#join"
+        class="mobile-nav-link hover:bg-brand-light hover:text-brand-primary block rounded-md px-3 py-3 text-base font-medium text-gray-700 transition-colors"
+      >
+        Join Us
+      </a>
+      <a
+        href="/resources/"
+        class="mobile-nav-link text-brand-accent hover:bg-brand-light block rounded-md px-3 py-3 text-base font-semibold transition-colors hover:text-yellow-600"
+      >
+        Member Resources
+      </a>
+      <div class="pt-3">
+        <a
+          href="https://lu.ma/glaam"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mobile-nav-link bg-brand-primary block rounded-lg px-4 py-3 text-center text-base font-semibold text-white shadow-sm transition-all hover:bg-blue-700"
+        >
+          Events Calendar ↗
+        </a>
+      </div>
+    </nav>
+  </div>
 </header>
+
+<script>
+  (function () {
+    const btn = document.getElementById("mobile-menu-btn");
+    const panel = document.getElementById("mobile-menu-panel");
+    const iconOpen = document.getElementById("menu-icon-open");
+    const iconClose = document.getElementById("menu-icon-close");
+
+    if (!btn || !panel) return;
+
+    function openMenu() {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+      btn.setAttribute("aria-expanded", "true");
+      iconOpen.classList.add("hidden");
+      iconClose.classList.remove("hidden");
+    }
+
+    function closeMenu() {
+      panel.style.maxHeight = "0";
+      btn.setAttribute("aria-expanded", "false");
+      iconOpen.classList.remove("hidden");
+      iconClose.classList.add("hidden");
+    }
+
+    function toggleMenu() {
+      const isOpen = btn.getAttribute("aria-expanded") === "true";
+      isOpen ? closeMenu() : openMenu();
+    }
+
+    btn.addEventListener("click", toggleMenu);
+
+    // Close when a nav link is tapped
+    panel.querySelectorAll(".mobile-nav-link").forEach(function (link) {
+      link.addEventListener("click", closeMenu);
+    });
+
+    // Close on outside click
+    document.addEventListener("click", function (e) {
+      if (
+        btn.getAttribute("aria-expanded") === "true" &&
+        !panel.contains(e.target) &&
+        !btn.contains(e.target)
+      ) {
+        closeMenu();
+      }
+    });
+
+    // Close on Escape key
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && btn.getAttribute("aria-expanded") === "true") {
+        closeMenu();
+        btn.focus();
+      }
+    });
+  })();
+</script>
 
 
     <main class="flex-grow">
@@ -104,7 +216,7 @@
               </svg>
               What's Happening?
             </h2>
-            <a href="#" class="text-brand-primary text-sm font-semibold hover:text-blue-800">
+            <a href="https://lu.ma/glaam" class="text-brand-primary text-sm font-semibold hover:text-blue-800" target="_blank" rel="noopener noreferrer">
               View Full Calendar &rarr;
             </a>
           </div>
@@ -199,7 +311,8 @@
                 Mensa Connect &rarr;
               </a>
               <a
-                href="#"
+                href="https://facebook.com/groups/MensaLA/"
+                target="_blank" rel="noopener noreferrer"
                 class="rounded-xl bg-white/20 px-6 py-3 text-center font-semibold text-white transition-colors hover:bg-white/30"
               >
                 Facebook Group
@@ -276,7 +389,7 @@
 
             <div class="border-t border-gray-100 pt-4">
               <a
-                href="#"
+                href="/contact"
                 class="hover:text-brand-primary flex items-center gap-1 text-sm font-semibold text-gray-700"
               >
                 View Full Leadership Directory
@@ -298,7 +411,7 @@
           <ul class="space-y-3">
             <li>
               <a
-                href="#"
+                href="/resources/"
                 class="hover:border-brand-primary group block rounded-xl border border-gray-100 bg-white p-3 shadow-sm transition-all hover:shadow"
               >
                 <div class="group-hover:text-brand-primary font-bold text-gray-800">
@@ -309,7 +422,7 @@
             </li>
             <li>
               <a
-                href="#"
+                href="/about"
                 class="hover:border-brand-primary group block rounded-xl border border-gray-100 bg-white p-3 shadow-sm transition-all hover:shadow"
               >
                 <div class="group-hover:text-brand-primary font-bold text-gray-800">
@@ -352,7 +465,9 @@
         <h3 class="mb-4 text-lg font-bold">Quick Links</h3>
         <ul class="space-y-2 text-sm text-gray-300">
           <li><a href="/#about" class="hover:text-brand-accent transition-colors">About Us</a></li>
+          <li><a href="/events/" class="hover:text-brand-accent transition-colors">Events Calendar</a></li>
           <li><a href="/#join" class="hover:text-brand-accent transition-colors">Join Mensa</a></li>
+          <li><a href="/contact/" class="hover:text-brand-accent transition-colors">Contact Us</a></li>
           <li>
             <a href="/resources/" class="hover:text-brand-accent transition-colors">
               Member Resources
