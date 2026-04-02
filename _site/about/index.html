@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About GLAAM - Greater Los Angeles Area Mensa</title>
+    <meta
+      name="description"
+      content="Welcome to Greater Los Angeles Area Mensa. Connect with bright minds through local events, Special Interest Groups, and our welcoming community."
+    />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/logo.png" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body class="bg-bg-subtle flex min-h-screen flex-col font-sans text-gray-800">
+    <header class="sticky top-0 z-50 bg-white shadow-sm">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="flex h-16 items-center justify-between">
+      <div class="flex flex-shrink-0 items-center">
+        <a href="/" class="flex items-center">
+          <img src="/assets/images/glaam-logo.webp" alt="GLAAM - Greater Los Angeles Area Mensa" class="h-14 w-auto" />
+        </a>
+      </div>
+      <nav class="hidden space-x-8 md:flex">
+        <a
+          href="/about/"
+          class="hover:text-brand-primary rounded-md px-3 py-2 text-sm font-medium text-gray-600 transition-colors"
+        >
+          About Mensa
+        </a>
+        <a
+          href="/events/"
+          class="hover:text-brand-primary rounded-md px-3 py-2 text-sm font-medium text-gray-600 transition-colors"
+        >
+          Events
+        </a>
+        <a
+          href="/#join"
+          class="hover:text-brand-primary rounded-md px-3 py-2 text-sm font-medium text-gray-600 transition-colors"
+        >
+          Join Us
+        </a>
+        <a
+          href="/contact/"
+          class="hover:text-brand-primary rounded-md px-3 py-2 text-sm font-medium text-gray-600 transition-colors"
+        >
+          Contact
+        </a>
+        <a
+          href="/resources/"
+          class="text-brand-accent rounded-md px-3 py-2 text-sm font-semibold transition-colors hover:text-yellow-600"
+        >
+          Member Resources
+        </a>
+      </nav>
+      <!-- Mobile menu button -->
+      <div class="flex items-center md:hidden">
+        <button
+          id="mobile-menu-btn"
+          type="button"
+          aria-expanded="false"
+          aria-controls="mobile-menu-panel"
+          class="hover:text-brand-primary focus:ring-brand-primary relative p-2 text-gray-600 focus:ring-2 focus:outline-none focus:ring-inset"
+        >
+          <span class="sr-only">Open main menu</span>
+          <!-- Hamburger icon -->
+          <svg id="menu-icon-open" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <!-- Close icon (hidden by default) -->
+          <svg id="menu-icon-close" class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile menu panel -->
+  <div
+    id="mobile-menu-panel"
+    class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out md:hidden"
+  >
+    <nav class="space-y-1 border-t border-gray-200 px-4 pb-4 pt-3">
+      <a
+        href="/about/"
+        class="mobile-nav-link hover:bg-brand-light hover:text-brand-primary block rounded-md px-3 py-3 text-base font-medium text-gray-700 transition-colors"
+      >
+        About Mensa
+      </a>
+      <a
+        href="/#join"
+        class="mobile-nav-link hover:bg-brand-light hover:text-brand-primary block rounded-md px-3 py-3 text-base font-medium text-gray-700 transition-colors"
+      >
+        Join Us
+      </a>
+      <a
+        href="/resources/"
+        class="mobile-nav-link text-brand-accent hover:bg-brand-light block rounded-md px-3 py-3 text-base font-semibold transition-colors hover:text-yellow-600"
+      >
+        Member Resources
+      </a>
+      <div class="pt-3">
+        <a
+          href="https://lu.ma/glaam"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mobile-nav-link bg-brand-primary block rounded-lg px-4 py-3 text-center text-base font-semibold text-white shadow-sm transition-all hover:bg-blue-700"
+        >
+          Events Calendar ↗
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+  (function () {
+    const btn = document.getElementById("mobile-menu-btn");
+    const panel = document.getElementById("mobile-menu-panel");
+    const iconOpen = document.getElementById("menu-icon-open");
+    const iconClose = document.getElementById("menu-icon-close");
+
+    if (!btn || !panel) return;
+
+    function openMenu() {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+      btn.setAttribute("aria-expanded", "true");
+      iconOpen.classList.add("hidden");
+      iconClose.classList.remove("hidden");
+    }
+
+    function closeMenu() {
+      panel.style.maxHeight = "0";
+      btn.setAttribute("aria-expanded", "false");
+      iconOpen.classList.remove("hidden");
+      iconClose.classList.add("hidden");
+    }
+
+    function toggleMenu() {
+      const isOpen = btn.getAttribute("aria-expanded") === "true";
+      isOpen ? closeMenu() : openMenu();
+    }
+
+    btn.addEventListener("click", toggleMenu);
+
+    // Close when a nav link is tapped
+    panel.querySelectorAll(".mobile-nav-link").forEach(function (link) {
+      link.addEventListener("click", closeMenu);
+    });
+
+    // Close on outside click
+    document.addEventListener("click", function (e) {
+      if (
+        btn.getAttribute("aria-expanded") === "true" &&
+        !panel.contains(e.target) &&
+        !btn.contains(e.target)
+      ) {
+        closeMenu();
+      }
+    });
+
+    // Close on Escape key
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && btn.getAttribute("aria-expanded") === "true") {
+        closeMenu();
+        btn.focus();
+      }
+    });
+  })();
+</script>
+
+
+    <main class="flex-grow">
+<!-- Page Header Section -->
+<section class="relative bg-white pt-24 pb-16 lg:pt-32 lg:pb-24 overflow-hidden">
+  <div class="absolute inset-y-0 right-1/2 -z-10 mr-16 w-[200%] origin-bottom-left skew-x-[-30deg] bg-white shadow-xl ring-1 shadow-blue-100/20 ring-blue-50 sm:mr-28 lg:mr-0 xl:mr-16 xl:origin-center"></div>
+  <div class="absolute top-0 right-0 -z-10 h-full w-1/2 bg-blue-50/50"></div>
+
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
+      <div class="animate-fade-in-up">
+        <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">
+          About <span class="text-brand-primary">GLAAM</span>
+        </h1>
+        <p class="mt-6 text-xl leading-relaxed text-gray-600">
+          The Greater Los Angeles Area Mensa (GLAAM) is a vibrant, deeply connected community spanning multiple counties across Southern California. 
+        </p>
+        <p class="mt-4 text-lg leading-relaxed text-gray-600">
+          We are the local chapter of American Mensa, the high IQ society. Our mission is to identify and foster human intelligence, encourage research into the nature of intelligence, and provide a stimulating intellectual and social environment for our members. 
+        </p>
+      </div>
+      <div class="mt-12 lg:mt-0 animate-fade-in-up" style="animation-delay: 150ms;">
+        <div class="rounded-3xl shadow-xl ring-1 ring-gray-900/5 bg-white p-8 relative overflow-hidden">
+          <div class="absolute top-0 right-0 -mr-8 -mt-8 w-32 h-32 bg-brand-primary/10 rounded-full blur-2xl"></div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">What is Mensa?</h3>
+          <p class="text-gray-600 mb-6">
+            Mensa is an international society with one—and only one—qualification for membership: a score in the top 2% of the general population on an approved intelligence test. 
+          </p>
+          <ul class="space-y-4">
+            <li class="flex items-start">
+              <svg class="w-6 h-6 text-brand-primary mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              <span class="text-gray-700">Founded in 1946 by Roland Berrill and Lancelot Ware.</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-6 h-6 text-brand-primary mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+              <span class="text-gray-700">A completely non-political and non-religious organization.</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-6 h-6 text-brand-primary mt-1 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
+              <span class="text-gray-700">Over 140,000 members across 100 countries worldwide.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Our Territory Section -->
+<section class="bg-gray-50 py-20 lg:py-32">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-16 animate-fade-in-up">
+      <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Our Territory</h2>
+      <p class="mt-4 text-xl text-gray-600">
+        GLAAM is proudly divided into six distinct geographic subgroups, allowing us to host intimate local events while maintaining the resources of a massive chapter.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Area 1: Mid-City -->
+      <div class="group relative overflow-hidden rounded-2xl shadow-md bg-white transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+        <div class="h-48 overflow-hidden">
+          <img src="/mid-city.jpg" alt="Mid-City Area" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 cursor-pointer" onclick="openLightbox(this.src, this.alt)">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Mid-City <span class="text-brand-primary text-sm font-semibold ml-2 bg-blue-50 px-2 py-1 rounded-full">MCity</span></h3>
+          <p class="text-gray-600 text-sm">The bustling core of Los Angeles, spanning downtown and surrounding urban communities.</p>
+        </div>
+      </div>
+
+      <!-- Area 2: Coastal -->
+      <div class="group relative overflow-hidden rounded-2xl shadow-md bg-white transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+        <div class="h-48 overflow-hidden">
+          <img src="/coastal.jpg" alt="Coastal Area" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 cursor-pointer" onclick="openLightbox(this.src, this.alt)">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Coastal <span class="text-brand-primary text-sm font-semibold ml-2 bg-blue-50 px-2 py-1 rounded-full">Coast</span></h3>
+          <p class="text-gray-600 text-sm">Serving the beautiful beach cities, stretching across the western edge of the region.</p>
+        </div>
+      </div>
+
+      <!-- Area 3: SFV -->
+      <div class="group relative overflow-hidden rounded-2xl shadow-md bg-white transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+        <div class="h-48 overflow-hidden">
+          <img src="/sfv.jpg" alt="San Fernando Valley" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 cursor-pointer" onclick="openLightbox(this.src, this.alt)">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-gray-900 mb-2">San Fernando Valley <span class="text-brand-primary text-sm font-semibold ml-2 bg-blue-50 px-2 py-1 rounded-full">SFV</span></h3>
+          <p class="text-gray-600 text-sm">The vast valley region bringing together members north of the Hollywood Hills.</p>
+        </div>
+      </div>
+
+      <!-- Area 4: ELAC -->
+      <div class="group relative overflow-hidden rounded-2xl shadow-md bg-white transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+        <div class="h-48 overflow-hidden">
+          <img src="/elac.jpg" alt="East L.A. County" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 cursor-pointer" onclick="openLightbox(this.src, this.alt)">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-gray-900 mb-2">East L.A. County <span class="text-brand-primary text-sm font-semibold ml-2 bg-blue-50 px-2 py-1 rounded-full">ELAC</span></h3>
+          <p class="text-gray-600 text-sm">Covering the diverse and historic communities east of the Los Angeles river.</p>
+        </div>
+      </div>
+
+      <!-- Area 5: Hi-Desert -->
+      <div class="group relative overflow-hidden rounded-2xl shadow-md bg-white transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+        <div class="h-48 overflow-hidden">
+          <img src="/hi-desert.jpg" alt="Hi-Desert" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 cursor-pointer" onclick="openLightbox(this.src, this.alt)">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Hi-Desert <span class="text-brand-primary text-sm font-semibold ml-2 bg-blue-50 px-2 py-1 rounded-full">HiD</span></h3>
+          <p class="text-gray-600 text-sm">Our northernmost and expansive territory, encompassing the striking high desert landscapes.</p>
+        </div>
+      </div>
+
+      <!-- Area 6: IE -->
+      <div class="group relative overflow-hidden rounded-2xl shadow-md bg-white transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+        <div class="h-48 overflow-hidden">
+          <img src="/ie.jpg" alt="Inland Empire" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 cursor-pointer" onclick="openLightbox(this.src, this.alt)">
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Inland Empire <span class="text-brand-primary text-sm font-semibold ml-2 bg-blue-50 px-2 py-1 rounded-full">IE</span></h3>
+          <p class="text-gray-600 text-sm">Stretching eastward, supporting a rapidly growing suburban and metropolitan community.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Scholarships Section -->
+<section class="bg-white py-20 lg:py-32 border-t border-gray-100">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="bg-gradient-to-br from-blue-900 flex flex-col md:flex-row to-brand-primary rounded-3xl overflow-hidden shadow-2xl">
+      <div class="p-8 md:p-12 lg:p-16 md:w-2/3">
+        <div class="inline-flex items-center rounded-full bg-blue-400/20 px-3 py-1 font-semibold text-blue-100 mb-6 border border-blue-400/30">
+          <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"></path></svg>
+          Community Outreach
+        </div>
+        <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Mensa Foundation Scholarships</h2>
+        <p class="mt-4 text-lg text-blue-100 leading-relaxed">
+          The Mensa Foundation Scholarship Program awards more than $150,000 in assistance every year to college-bound students around the globe. Scholarships are awarded based solely on 550-word essays expressing applicants’ academic and professional goals.
+        </p>
+        <p class="mt-4 text-blue-200">
+          U.S. applicants need not be Mensa members. However, college-bound Mensa members and their dependents may also be eligible for one of several $2,500 scholarships awarded each year.
+        </p>
+        <div class="mt-8">
+          <a href="https://www.mensafoundation.org/what-we-do/scholarships/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-full bg-white px-8 py-3 text-base font-bold text-brand-primary shadow-sm hover:bg-gray-50 transition-colors">
+            Submit an Application
+            <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+          </a>
+        </div>
+      </div>
+      <div class="md:w-1/3 bg-blue-800 relative hidden md:block">
+        <div class="absolute inset-0 flex items-center justify-center opacity-10">
+          <svg class="w-64 h-64 text-white" fill="currentColor" viewBox="0 0 20 20"><path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"></path></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox Modal -->
+<div id="lightbox" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/90 p-4 transition-opacity duration-300 opacity-0" onclick="closeLightbox()">
+  <button class="absolute top-6 right-6 text-white hover:text-gray-300 focus:outline-none" onclick="closeLightbox()">
+    <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+    </svg>
+  </button>
+  <div class="relative w-full max-w-5xl rounded-xl overflow-hidden shadow-2xl" onclick="event.stopPropagation()">
+    <img id="lightbox-img" src="" alt="Enlarged territory view" class="w-full h-auto max-h-[85vh] object-contain bg-black" />
+    <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 p-6 flex justify-between items-end">
+      <p id="lightbox-caption" class="text-white text-xl font-bold"></p>
+    </div>
+  </div>
+</div>
+
+<script>
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxCaption = document.getElementById('lightbox-caption');
+
+  function openLightbox(src, alt) {
+    lightboxImg.src = src;
+    lightboxCaption.textContent = alt;
+    lightbox.classList.remove('hidden');
+    lightbox.classList.add('flex');
+    
+    // Tiny delay to allow display block to render before triggering opacity transition
+    setTimeout(() => {
+      lightbox.classList.remove('opacity-0');
+      lightbox.classList.add('opacity-100');
+    }, 10);
+
+    // Prevent body scrolling
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('opacity-100');
+    lightbox.classList.add('opacity-0');
+    
+    // Wait for transition to finish before hiding
+    setTimeout(() => {
+      lightbox.classList.remove('flex');
+      lightbox.classList.add('hidden');
+      lightboxImg.src = '';
+    }, 300);
+
+    // Restore body scrolling
+    document.body.style.overflow = '';
+  }
+
+  // Add escape key closing
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !lightbox.classList.contains('hidden')) {
+      closeLightbox();
+    }
+  });
+</script>
+</main>
+
+    <footer class="mt-16 bg-gray-800 text-white">
+  <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+      <div>
+        <h3 class="mb-4 text-xl font-bold">GLAAM</h3>
+        <p class="text-sm text-gray-300">
+          Greater Los Angeles Area Mensa. A local group of American Mensa, Ltd.
+        </p>
+      </div>
+      <div>
+        <h3 class="mb-4 text-lg font-bold">Quick Links</h3>
+        <ul class="space-y-2 text-sm text-gray-300">
+          <li><a href="/about/" class="hover:text-brand-accent transition-colors">About Us</a></li>
+          <li><a href="/events/" class="hover:text-brand-accent transition-colors">Events Calendar</a></li>
+          <li><a href="/#join" class="hover:text-brand-accent transition-colors">Join Mensa</a></li>
+          <li><a href="/contact/" class="hover:text-brand-accent transition-colors">Contact Us</a></li>
+          <li>
+            <a href="/resources/" class="hover:text-brand-accent transition-colors">
+              Member Resources
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="mb-4 text-lg font-bold">Mensa National</h3>
+        <ul class="space-y-2 text-sm text-gray-300">
+          <li>
+            <a
+              href="https://www.us.mensa.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-brand-accent transition-colors"
+            >
+              American Mensa
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.mensa.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-brand-accent transition-colors"
+            >
+              Mensa International
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="mt-8 border-t border-gray-700 pt-8 text-center text-sm text-gray-400">
+      <p>
+        &copy; 2026 Greater Los Angeles Area Mensa. All rights
+        reserved.
+      </p>
+      <p class="mt-2 text-xs">
+        Mensa and the Mensa logo are registered trademarks of Mensa International Limited and/or
+        American Mensa, Ltd.
+      </p>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

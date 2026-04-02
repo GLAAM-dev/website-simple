@@ -3,6 +3,7 @@ import { EleventyHtmlBasePlugin } from "@11ty/eleventy";
 export default function (eleventyConfig) {
   // Pass through standard assets if we create them
   eleventyConfig.addPassthroughCopy("src/assets");
+  eleventyConfig.addPassthroughCopy({ "public": "/" });
 
   eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
 
