@@ -29,3 +29,6 @@ dist-ssr
 # Working Logs
 content_triage.md
 task.md
+
+# Compiled Output
+_site/
