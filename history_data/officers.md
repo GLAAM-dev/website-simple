@@ -2610,8 +2610,8 @@ Inland Empire (Riverside/San Bernardino) Secretary:
 2015 Brian Madsen
 2019 Billie Lee
 2020 Billie Lee
-2023 Case Walker (not a GLAAM member)
-2024 Case Walker (not a GLAAM member)
+2023 Case Walker
+2024 Case Walker
 2025 Jay Friedlander
 
 <strong>RG Location:</strong>
