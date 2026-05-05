@@ -32,34 +32,46 @@
           <img src="/assets/images/glaam-logo.webp" alt="GLAAM - Greater Los Angeles Area Mensa" class="h-14 w-auto" />
         </a>
       </div>
-      <nav class="hidden space-x-8 md:flex">
+      <nav class="hidden flex-wrap items-center gap-x-1 md:flex md:justify-end lg:gap-x-4 xl:gap-x-6">
         <a
           href="/about/"
-          class="hover:text-brand-primary rounded-md px-3 py-2 text-sm font-medium text-gray-600 transition-colors"
+          class="hover:text-brand-primary rounded-md px-2 py-2 text-sm font-medium text-gray-600 transition-colors lg:px-3"
         >
           About Mensa
         </a>
         <a
+          href="/history/"
+          class="hover:text-brand-primary rounded-md px-2 py-2 text-sm font-medium text-gray-600 transition-colors lg:px-3"
+        >
+          History
+        </a>
+        <a
           href="/events/"
-          class="hover:text-brand-primary rounded-md px-3 py-2 text-sm font-medium text-gray-600 transition-colors"
+          class="hover:text-brand-primary rounded-md px-2 py-2 text-sm font-medium text-gray-600 transition-colors lg:px-3"
         >
           Events
         </a>
         <a
+          href="/regional-gathering/"
+          class="hover:text-brand-primary rounded-md px-2 py-2 text-sm font-medium text-gray-600 transition-colors lg:px-3"
+        >
+          Regional Gathering
+        </a>
+        <a
           href="/join/"
-          class="hover:text-brand-primary rounded-md px-3 py-2 text-sm font-medium text-gray-600 transition-colors"
+          class="hover:text-brand-primary rounded-md px-2 py-2 text-sm font-medium text-gray-600 transition-colors lg:px-3"
         >
           Join Us
         </a>
         <a
           href="/contact/"
-          class="hover:text-brand-primary rounded-md px-3 py-2 text-sm font-medium text-gray-600 transition-colors"
+          class="hover:text-brand-primary rounded-md px-2 py-2 text-sm font-medium text-gray-600 transition-colors lg:px-3"
         >
           Contact
         </a>
         <a
           href="/resources/"
-          class="text-brand-accent rounded-md px-3 py-2 text-sm font-semibold transition-colors hover:text-yellow-600"
+          class="text-brand-accent rounded-md px-2 py-2 text-sm font-semibold transition-colors hover:text-yellow-600 lg:px-3"
         >
           Member Resources
         </a>
@@ -100,10 +112,34 @@
         About Mensa
       </a>
       <a
+        href="/history/"
+        class="mobile-nav-link hover:bg-brand-light hover:text-brand-primary block rounded-md px-3 py-3 text-base font-medium text-gray-700 transition-colors"
+      >
+        History
+      </a>
+      <a
+        href="/events/"
+        class="mobile-nav-link hover:bg-brand-light hover:text-brand-primary block rounded-md px-3 py-3 text-base font-medium text-gray-700 transition-colors"
+      >
+        Events
+      </a>
+      <a
+        href="/regional-gathering/"
+        class="mobile-nav-link hover:bg-brand-light hover:text-brand-primary block rounded-md px-3 py-3 text-base font-medium text-gray-700 transition-colors"
+      >
+        Regional Gathering
+      </a>
+      <a
         href="/join/"
         class="mobile-nav-link hover:bg-brand-light hover:text-brand-primary block rounded-md px-3 py-3 text-base font-medium text-gray-700 transition-colors"
       >
         Join Us
+      </a>
+      <a
+        href="/contact/"
+        class="mobile-nav-link hover:bg-brand-light hover:text-brand-primary block rounded-md px-3 py-3 text-base font-medium text-gray-700 transition-colors"
+      >
+        Contact
       </a>
       <a
         href="/resources/"
@@ -262,7 +298,7 @@
               class="group bg-brand-accent relative flex h-48 items-center justify-center overflow-hidden rounded-3xl p-8 shadow-lg ring-1 ring-gray-900/5"
             >
               <p class="text-center text-3xl leading-tight font-extrabold text-white">
-                1,400+
+                1,500+
                 <br />
                 <span class="text-lg font-medium opacity-90">Members in LA</span>
               </p>
@@ -274,6 +310,40 @@
   </div>
 </section>
 
+<!-- Regional Gathering teaser -->
+<section class="relative border-y border-amber-200/80 bg-gradient-to-r from-gray-900 via-brand-primary to-blue-950">
+  <div class="absolute inset-0 bg-[url('/stargazing.jpg')] bg-cover bg-center opacity-15"></div>
+  <div class="relative z-10 mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:flex lg:items-center lg:justify-between lg:gap-10 lg:px-8 lg:py-12">
+    <div class="max-w-xl">
+      <p class="text-xs font-bold uppercase tracking-wider text-brand-accent">Regional Gathering</p>
+      <h2 class="mt-2 text-2xl font-extrabold tracking-tight text-white sm:text-3xl">
+        Sta<span class="text-brand-accent">RG</span>azing 2026
+      </h2>
+      <p class="mt-2 text-blue-100">
+        Feb 13–15, 2026 · Long Beach area · Presidents’ Day weekend
+      </p>
+      <p class="mt-3 text-sm text-gray-300 sm:text-base">
+        Weekend convention for GLAAM and guests — speakers, games, hospitality, and more.
+      </p>
+    </div>
+    <div class="mt-6 flex flex-shrink-0 flex-wrap gap-4 lg:mt-0">
+      <a
+        href="/regional-gathering/"
+        class="bg-brand-accent text-gray-900 hover:bg-brand-accent-glow inline-flex items-center justify-center rounded-full px-6 py-3 text-base font-bold shadow-lg transition-all hover:-translate-y-0.5"
+      >
+        RG hub
+      </a>
+      <a
+        href="https://lu.ma/glaam?utm_source=glaam-website-home-rg"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center justify-center rounded-full border border-white/50 px-6 py-3 text-base font-bold text-white hover:bg-white/10"
+      >
+        Luma ↗
+      </a>
+    </div>
+  </div>
+</section>
 
 <!-- Portal Grid -->
 <section class="bg-gray-50 py-24 relative overflow-hidden">
@@ -377,6 +447,9 @@
         <ul class="space-y-2 text-sm text-gray-300">
           <li><a href="/about/" class="hover:text-brand-accent transition-colors">About Us</a></li>
           <li><a href="/events/" class="hover:text-brand-accent transition-colors">Events Calendar</a></li>
+          <li>
+            <a href="/regional-gathering/" class="hover:text-brand-accent transition-colors">Regional Gathering</a>
+          </li>
           <li><a href="/join/" class="hover:text-brand-accent transition-colors">Join Mensa</a></li>
           <li><a href="/contact/" class="hover:text-brand-accent transition-colors">Contact Us</a></li>
           <li><a href="/history/" class="hover:text-brand-accent transition-colors">Chapter History</a></li>

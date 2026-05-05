@@ -31,3 +31,5 @@ task.md
 
 # Compiled Output
 _site/
+
+docs/*

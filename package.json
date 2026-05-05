@@ -6,10 +6,10 @@
   "scripts": {
     "dev:11ty": "eleventy --serve",
     "dev:css": "tailwindcss -i ./src/style.css -o ./_site/css/style.css --watch",
-    "dev": "npm-run-all --parallel dev:*",
+    "dev": "node ./node_modules/npm-run-all/bin/npm-run-all/index.js --parallel dev:*",
     "build:11ty": "eleventy",
     "build:css": "tailwindcss -i ./src/style.css -o ./_site/css/style.css --minify",
-    "build": "npm-run-all build:css build:11ty",
+    "build": "node ./node_modules/npm-run-all/bin/npm-run-all/index.js build:css build:11ty",
     "format": "prettier --write \"src/**/*.{html,njk,md,js,css}\""
   },
   "dependencies": {
